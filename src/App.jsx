@@ -9,7 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <Router>
+  <div className='overflow-x-hidden  '> 
+       <Router>
       <>
         <Navbar />
         <Routes>
@@ -21,6 +22,8 @@ const App = () => {
         </Routes>
       </>
     </Router>
+    </div>
+
   );
 }
 
