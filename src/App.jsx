@@ -5,6 +5,7 @@ import Home from './components/Home.jsx';
 import About from './components/About.jsx';
 import More from './components/More.jsx';
 import Contact from './components/Contact.jsx';
+import Cart from './components/Cart.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/more' element={<More />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
       </>
     </Router>
