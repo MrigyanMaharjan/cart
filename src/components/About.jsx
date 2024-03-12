@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='bg-slate-300 w-screen h-[90vh] '>
+    <div className='bg-slate-300 w-screen pt-[10vh] h-screen '>
       <section className='  h-[10vh] text-3xl flex items-center justify-center capitalize'>About us</section>
       <section className='px-10 text-center'>
         Welcome to our Cart App!
