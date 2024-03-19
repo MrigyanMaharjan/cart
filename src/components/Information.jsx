@@ -33,7 +33,7 @@ export const Information = [
   function generateDescription() {
   const descriptions = [
     "This is just a sample product that was made for this project only",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is justr a sample i am just typing as fasdalkfhlasdhfhasldfhskdhfksadhfdlkjfhjlasdkfjahsdfdasdkfjdhfjdhkalsdjfhaskdfjahsdlfkst as i can so dont judge my spellings for testing no thin gmore",
     "Enhance your style with our premium product!",
     "Get the best deal today!",
     "Experience comfort like never before.",
