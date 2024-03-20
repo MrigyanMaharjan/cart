@@ -2,34 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { Information } from './Information.jsx';
 import { Link } from 'react-router-dom';
 import Cart from './Cart.jsx';
+import { useContext } from 'react';
+import Cartcontext, { Itemscontext } from '../context/cartcontext.jsx';
+import { Itemstate } from '../context/cartstate.jsx';
+
 
 const Items = () => {
+const item=useContext(Itemscontext);
+console.log(item)
+  const a= useContext(Cartcontext);
+  console.log(a)
+
+
   const [result, setResult] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://dummyjson.com/products');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-        console.log( data);
-        setResult(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, []);
   
+useEffect(() => {
+  return () => {
+    console.log( `result is ${result}`)
+    setResult(a)
+  }
+}, [a])
+
+
+
+
 
   const addToCart = (index) => {
-    const newItem = result[index];
-    setCart([...cart, newItem]);
-    setCartItems([...cartItems, newItem]);
+    item.push(result.products[index])
+//  console.log(result.products[index])
+// console.log(item)
+  
   };
 
   return (
@@ -44,7 +48,7 @@ const Items = () => {
         ) : (
           <Link
             to={`/cart`}
-            className='absolute mt-5 border-2 border-black p-2 hover:bg-black hover:text-white after:top-[10px] after:left-2 after:contents-[""] after:h-2 after:w-2 hover:cursor-pointer top-[15px]  after:bg-red-500 after:rounded-full after:absolute text-black bg-transparent right-10 max-sm:right-3 w-15 duration-150 flex items-center justify-center '>
+            className='absolute mt-5 border top-[4rem] border-black p-2 hover:bg-black hover:text-white text-black bg-transparent right-10 max-sm:right-3 w-15 duration-150 hover:cursor-pointer flex items-center justify-center after:top-[10px] after:left-2 after:contents-[""] after:h-2 after:w-2  after:bg-red-500 after:rounded-full after:absolute '>
             Cart
           </Link>
         )}
@@ -61,7 +65,7 @@ const Items = () => {
                 {item.description.length > 60 ? item.description.slice(0, 100).concat('...') : item.description}
               </section>
               <section className='w-full bg-white h-16 flex items-center justify-center'>
-                <button onClick={() => addToCart(index)} className='absolute border-2 border-black p-2 capitalize hover:-translate-y-1 duration-150 rounded-md hover:text-white hover:bg-black'>
+                <button onClick={() => addToCart(item.id)} className='absolute border-2 border-black p-2 capitalize hover:-translate-y-1 duration-150 rounded-md hover:text-white hover:bg-black'>
                   Add to cart
                 </button>
               </section>

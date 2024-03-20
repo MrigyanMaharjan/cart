@@ -7,9 +7,14 @@ import More from './components/More.jsx';
 import Contact from './components/Contact.jsx';
 import Cart from './components/Cart.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Cartstate from './context/cartstate.jsx';
+import { Itemstate } from './context/cartstate.jsx';
+
 
 const App = () => {
   return (
+    <Cartstate>
+    <Itemstate>
   <div className='overflow-x-hidden  '> 
        <Router>
       <>
@@ -25,7 +30,8 @@ const App = () => {
       </>
     </Router>
     </div>
-
+    </Itemstate>
+    </Cartstate>
   );
 }
 
