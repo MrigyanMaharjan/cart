@@ -30,14 +30,19 @@ useEffect(() => {
 
 
   const addToCart = (index) => {
-    item.push(result.products[index])
-//  console.log(result.products[index])
-// console.log(item)
+
+    if (!item.includes(result.products[index])) {
+      item.push(result.products[index]);
+      console.log(item);
+  }
+  
+
+
   
   };
 
   return (
-    <div className=' overflow-hidden h-full pt-[15vh]  bg-slate-200 flex-col gap-10 flex items-center justify-center'>
+    <div className=' overflow-hidden hfull pt-[15vh]  bg-slate-200 flex-col gap-10 flex items-center justify-center'>
       <section className='  place-items-center w-sceen bg-slate-200 gap-3 grid grid-cols-4 p-10 grid-rows-2 max-sm:grid-cols-2 max-sm:px-2 max-md:grid-cols-3 max-md:px-1'>
         {cart.length === 0 ? (
           <Link
