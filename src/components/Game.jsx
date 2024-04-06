@@ -7,13 +7,22 @@ const Game = () => {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [turn, setTurn] = useState('O');
     const [win, setWin] = useState(false);
+    const [count,setCount]=useState(1)
 
     const handleClick = (index) => {
+       
         if (board[index] === null) {
             const newBoard = [...board];
             newBoard[index] = turn;
             setBoard(newBoard);
             setTurn(turn === 'X' ? 'O' : 'X');
+            setCount(prev=>prev+1)
+            console.log(count);
+            if(count==9){
+                setWin(true)
+                setWinner("Draw")
+                setCount(1)
+            }
             Conditions.forEach((condition)=>{
                 let pos1=condition[0];
                 let pos2=condition[1];
@@ -26,6 +35,8 @@ const Game = () => {
                 setWin(true)
                 setWinner(pos1val)
               }
+              
+              
                 }
             })
             
@@ -59,7 +70,7 @@ const Game = () => {
             {win?<>
             <div className=' absolute h-[60vh] w-[50vw] bg-transparent backdrop-blur-sm  flex items-top justify-center min-sm:w-screen'>    
                         <div className=' transition-transform absolute h-[30vh] w-[30vw] bg-teal-400 rounded-xl min-sm:w-screen flex items-center justify-center flex-col'> 
-            <p className=' text-2xl '>Congratulations {winner} won</p>
+            <p className=' text-2xl '>{winner==="Draw"?"Draw":`Congratulations ${winner} won`}</p>
             <button onClick={resetgame} className='border-2 p-2 mt-5 rounded-lg hover:bg-white hover:text-black duration-150'>Play Again</button>
             </div>
             </div>

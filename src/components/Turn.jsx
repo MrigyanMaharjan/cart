@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 
 const Turn = ({player}) => {
-    console.log(player)
 
       const[turn,setTurn]=useState(player);
     
